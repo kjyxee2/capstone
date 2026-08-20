@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bff1c67feeebd0d9f022e7e49b2d61ed {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 30px; left: 30px; width: 260px; z-index:9999;
+     background:white; border:1.5px solid #999; border-radius:8px; padding:10px 14px; font-size:13px;">
+<b>범례</b><br>
+<span style="color:green;">●</span> 실선 마커: 실제 유사 업종 존재 (근거 있음)<br>
+<span style="color:#b04040;">- - -</span> 점선 원: 실제 존재하지 않는 가상 배치<br>
+</div>
+    
+            <div class="folium-map" id="map_bff1c67feeebd0d9f022e7e49b2d61ed" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_bff1c67feeebd0d9f022e7e49b2d61ed = L.map(
+                "map_bff1c67feeebd0d9f022e7e49b2d61ed",
+                {
+                    center: [37.5128, 126.9265],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9c99c9580e2502a41545d4d80fc909c5 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_9c99c9580e2502a41545d4d80fc909c5.addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var marker_3e0be770bf773bee0c1310da17aefc1c = L.marker(
+                [37.5128, 126.9265],
+                {
+}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var icon_9f7bc988d224df3f8ad1840807039bdc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9fe670b1c98a746b0b3b43a0535b265a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a0787f9b149dd491ea3c41196b132f77 = $(`<div id="html_a0787f9b149dd491ea3c41196b132f77" style="width: 100.0%; height: 100.0%;">공군호텔 (상권 중심)</div>`)[0];
+                popup_9fe670b1c98a746b0b3b43a0535b265a.setContent(html_a0787f9b149dd491ea3c41196b132f77);
+            
+        
+
+        marker_3e0be770bf773bee0c1310da17aefc1c.bindPopup(popup_9fe670b1c98a746b0b3b43a0535b265a)
+        ;
+
+        
+    
+    
+            marker_3e0be770bf773bee0c1310da17aefc1c.bindTooltip(
+                `<div>
+                     공군호텔
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3e0be770bf773bee0c1310da17aefc1c.setIcon(icon_9f7bc988d224df3f8ad1840807039bdc);
+            
+    
+            var marker_81c39c84e78a7a888234726a79ac38b2 = L.marker(
+                [37.51089735250102, 126.92570731604668],
+                {
+}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var icon_c5b7d249813b61cbce9b9df7b8d1246a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2804e3a187d17592968039309a6c9be4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0217c808913d3a1cbfddce5f375884ad = $(`<div id="html_0217c808913d3a1cbfddce5f375884ad" style="width: 100.0%; height: 100.0%;"><b>롯데마트 대방점</b> (마트)<br><span style='color:green'>✓ 실제 슈퍼마켓 23개 존재 (근사 매핑)</span></div>`)[0];
+                popup_2804e3a187d17592968039309a6c9be4.setContent(html_0217c808913d3a1cbfddce5f375884ad);
+            
+        
+
+        marker_81c39c84e78a7a888234726a79ac38b2.bindPopup(popup_2804e3a187d17592968039309a6c9be4)
+        ;
+
+        
+    
+    
+            marker_81c39c84e78a7a888234726a79ac38b2.bindTooltip(
+                `<div>
+                     롯데마트 대방점 [실제 근거 O]
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_81c39c84e78a7a888234726a79ac38b2.setIcon(icon_c5b7d249813b61cbce9b9df7b8d1246a);
+            
+    
+            var marker_74822f17ea6695c658ef3d78ecb80a3b = L.marker(
+                [37.51237590449272, 126.92853425475757],
+                {
+}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var icon_6297193f8e06a42fdde201a78c918d41 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "shopping-basket",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_eeb51ee2e545fb68bda535d9a025f1e7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b681f9176a807604185601b1b80a705d = $(`<div id="html_b681f9176a807604185601b1b80a705d" style="width: 100.0%; height: 100.0%;"><b>세븐일레븐 대방역점</b> (편의점)<br><span style='color:green'>✓ 실제 편의점 5개 존재</span></div>`)[0];
+                popup_eeb51ee2e545fb68bda535d9a025f1e7.setContent(html_b681f9176a807604185601b1b80a705d);
+            
+        
+
+        marker_74822f17ea6695c658ef3d78ecb80a3b.bindPopup(popup_eeb51ee2e545fb68bda535d9a025f1e7)
+        ;
+
+        
+    
+    
+            marker_74822f17ea6695c658ef3d78ecb80a3b.bindTooltip(
+                `<div>
+                     세븐일레븐 대방역점 [실제 근거 O]
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_74822f17ea6695c658ef3d78ecb80a3b.setIcon(icon_6297193f8e06a42fdde201a78c918d41);
+            
+    
+            var marker_06e4e7eedaebbec3ee16ecfdb6520ee3 = L.marker(
+                [37.51461755772153, 126.92467480443135],
+                {
+}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var icon_75ed59c2f38c3a72b9ce0d8efdd7f569 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "beige",
+  "iconColor": "white",
+  "icon": "coffee",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c46eef375ff568ce739ff906e6174bca = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d990ef8dc0d8c53ca48fb1b79be1179a = $(`<div id="html_d990ef8dc0d8c53ca48fb1b79be1179a" style="width: 100.0%; height: 100.0%;"><b>엔제리너스 대방점</b> (카페)<br><span style='color:green'>✓ 실제 커피-음료 업종 27개 존재</span></div>`)[0];
+                popup_c46eef375ff568ce739ff906e6174bca.setContent(html_d990ef8dc0d8c53ca48fb1b79be1179a);
+            
+        
+
+        marker_06e4e7eedaebbec3ee16ecfdb6520ee3.bindPopup(popup_c46eef375ff568ce739ff906e6174bca)
+        ;
+
+        
+    
+    
+            marker_06e4e7eedaebbec3ee16ecfdb6520ee3.bindTooltip(
+                `<div>
+                     엔제리너스 대방점 [실제 근거 O]
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_06e4e7eedaebbec3ee16ecfdb6520ee3.setIcon(icon_75ed59c2f38c3a72b9ce0d8efdd7f569);
+            
+    
+            var marker_604e803f778423b831d6a04ed2cf146a = L.marker(
+                [37.5136118062069, 126.92753099021105],
+                {
+}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var icon_bb7db933a61fd6ca211a4162f53edc36 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "bed",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4f3fed34e4f5057d9abc9e8ed5895956 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_07a7f293dff5fb675bcf5e7a97492da5 = $(`<div id="html_07a7f293dff5fb675bcf5e7a97492da5" style="width: 100.0%; height: 100.0%;"><b>롯데시티호텔 대방점</b> (호텔)<br><span style='color:green'>✓ 실제 여관업 18개 존재 (근사 매핑)</span></div>`)[0];
+                popup_4f3fed34e4f5057d9abc9e8ed5895956.setContent(html_07a7f293dff5fb675bcf5e7a97492da5);
+            
+        
+
+        marker_604e803f778423b831d6a04ed2cf146a.bindPopup(popup_4f3fed34e4f5057d9abc9e8ed5895956)
+        ;
+
+        
+    
+    
+            marker_604e803f778423b831d6a04ed2cf146a.bindTooltip(
+                `<div>
+                     롯데시티호텔 대방점 [실제 근거 O]
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_604e803f778423b831d6a04ed2cf146a.setIcon(icon_bb7db933a61fd6ca211a4162f53edc36);
+            
+    
+            var marker_983cf8bbd85d1b3fd48a1145cc14f681 = L.marker(
+                [37.51571376849946, 126.92773109747289],
+                {
+}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var icon_fed81650d01a2d2dd36af32dea377a8f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "film",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c208e5597c30725801a2de0e8f9727a4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6004ae19ca3d08d0c886b512e5c83f54 = $(`<div id="html_6004ae19ca3d08d0c886b512e5c83f54" style="width: 100.0%; height: 100.0%;"><b>롯데시네마 대방점</b> (영화관)<br><span style='color:#b04040'>✗ 이 상권에 실제 존재하지 않음 (가상 배치)</span></div>`)[0];
+                popup_c208e5597c30725801a2de0e8f9727a4.setContent(html_6004ae19ca3d08d0c886b512e5c83f54);
+            
+        
+
+        marker_983cf8bbd85d1b3fd48a1145cc14f681.bindPopup(popup_c208e5597c30725801a2de0e8f9727a4)
+        ;
+
+        
+    
+    
+            marker_983cf8bbd85d1b3fd48a1145cc14f681.bindTooltip(
+                `<div>
+                     롯데시네마 대방점 [가상 배치]
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_983cf8bbd85d1b3fd48a1145cc14f681.setIcon(icon_fed81650d01a2d2dd36af32dea377a8f);
+            
+    
+            var circle_marker_f89c930543d2b468f8c22067ea49669f = L.circleMarker(
+                [37.51571376849946, 126.92773109747289],
+                {"bubblingMouseEvents": true, "color": "#b04040", "dashArray": "4,4", "dashOffset": null, "fill": false, "fillColor": "#b04040", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.6, "radius": 18, "stroke": true, "weight": 1.5}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var marker_86945390e4e1890b316bac7540b20784 = L.marker(
+                [37.51583953200794, 126.9272278862186],
+                {
+}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var icon_638394dceddc13eaebfeb7563f6a9d09 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "gift",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a8366ec68e0a76102fa537baf4ac1023 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0e2bced3255e529ac025bafabf0c5d14 = $(`<div id="html_0e2bced3255e529ac025bafabf0c5d14" style="width: 100.0%; height: 100.0%;"><b>롯데면세점 대방점</b> (면세점)<br><span style='color:#b04040'>✗ 이 상권에 실제 존재하지 않음 (가상 배치)</span></div>`)[0];
+                popup_a8366ec68e0a76102fa537baf4ac1023.setContent(html_0e2bced3255e529ac025bafabf0c5d14);
+            
+        
+
+        marker_86945390e4e1890b316bac7540b20784.bindPopup(popup_a8366ec68e0a76102fa537baf4ac1023)
+        ;
+
+        
+    
+    
+            marker_86945390e4e1890b316bac7540b20784.bindTooltip(
+                `<div>
+                     롯데면세점 대방점 [가상 배치]
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_86945390e4e1890b316bac7540b20784.setIcon(icon_638394dceddc13eaebfeb7563f6a9d09);
+            
+    
+            var circle_marker_9c49a23a9897b6b043d37f14bdf41840 = L.circleMarker(
+                [37.51583953200794, 126.9272278862186],
+                {"bubblingMouseEvents": true, "color": "#b04040", "dashArray": "4,4", "dashOffset": null, "fill": false, "fillColor": "#b04040", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.6, "radius": 18, "stroke": true, "weight": 1.5}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var marker_107f56285cba61a0b6ad077545d4b6f5 = L.marker(
+                [37.51110531067383, 126.92359240730494],
+                {
+}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var icon_727347b6d10fcd77c37f789c5786cab3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "pink",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8c901ec26d41bdc684ebf8ffb3d2047a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d022a919fbf4386ee5d3ae69eb23d411 = $(`<div id="html_d022a919fbf4386ee5d3ae69eb23d411" style="width: 100.0%; height: 100.0%;"><b>롯데월드 미니파크 대방점</b> (테마파크)<br><span style='color:#b04040'>✗ 이 상권에 실제 존재하지 않음 (가상 배치)</span></div>`)[0];
+                popup_8c901ec26d41bdc684ebf8ffb3d2047a.setContent(html_d022a919fbf4386ee5d3ae69eb23d411);
+            
+        
+
+        marker_107f56285cba61a0b6ad077545d4b6f5.bindPopup(popup_8c901ec26d41bdc684ebf8ffb3d2047a)
+        ;
+
+        
+    
+    
+            marker_107f56285cba61a0b6ad077545d4b6f5.bindTooltip(
+                `<div>
+                     롯데월드 미니파크 대방점 [가상 배치]
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_107f56285cba61a0b6ad077545d4b6f5.setIcon(icon_727347b6d10fcd77c37f789c5786cab3);
+            
+    
+            var circle_marker_710153dc6d1702205851e817f3b91e16 = L.circleMarker(
+                [37.51110531067383, 126.92359240730494],
+                {"bubblingMouseEvents": true, "color": "#b04040", "dashArray": "4,4", "dashOffset": null, "fill": false, "fillColor": "#b04040", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.6, "radius": 18, "stroke": true, "weight": 1.5}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var marker_bffd343d53ef99577fee703e83ee60f9 = L.marker(
+                [37.51133930953109, 126.92281434459925],
+                {
+}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var icon_43335df1b76982b6b2843c92b21caab7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "building",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b7159ebbf8ef1eb50754c83c5e1e9a48 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7570edcfac18b00123c1249f0cb24b92 = $(`<div id="html_7570edcfac18b00123c1249f0cb24b92" style="width: 100.0%; height: 100.0%;"><b>롯데백화점 대방점</b> (백화점)<br><span style='color:#b04040'>✗ 이 상권에 실제 존재하지 않음 (가상 배치)</span></div>`)[0];
+                popup_b7159ebbf8ef1eb50754c83c5e1e9a48.setContent(html_7570edcfac18b00123c1249f0cb24b92);
+            
+        
+
+        marker_bffd343d53ef99577fee703e83ee60f9.bindPopup(popup_b7159ebbf8ef1eb50754c83c5e1e9a48)
+        ;
+
+        
+    
+    
+            marker_bffd343d53ef99577fee703e83ee60f9.bindTooltip(
+                `<div>
+                     롯데백화점 대방점 [가상 배치]
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bffd343d53ef99577fee703e83ee60f9.setIcon(icon_43335df1b76982b6b2843c92b21caab7);
+            
+    
+            var circle_marker_89fde0af22a2d7a2abbc3a37a4d63ffa = L.circleMarker(
+                [37.51133930953109, 126.92281434459925],
+                {"bubblingMouseEvents": true, "color": "#b04040", "dashArray": "4,4", "dashOffset": null, "fill": false, "fillColor": "#b04040", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 0.6, "radius": 18, "stroke": true, "weight": 1.5}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+            var circle_d47b65bd8d8da69504d13268522a62bf = L.circle(
+                [37.5128, 126.9265],
+                {"bubblingMouseEvents": true, "color": "#4a7ac8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4a7ac8", "fillOpacity": 0.06, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400, "stroke": true, "weight": 3}
+            ).addTo(map_bff1c67feeebd0d9f022e7e49b2d61ed);
+        
+    
+        var popup_275aac3ae3676f2933b0f37f7a9a7c1c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e971eb557c580f2a1e1b04680bf63737 = $(`<div id="html_e971eb557c580f2a1e1b04680bf63737" style="width: 100.0%; height: 100.0%;">공군호텔 상권 영역(반경 400m)</div>`)[0];
+                popup_275aac3ae3676f2933b0f37f7a9a7c1c.setContent(html_e971eb557c580f2a1e1b04680bf63737);
+            
+        
+
+        circle_d47b65bd8d8da69504d13268522a62bf.bindPopup(popup_275aac3ae3676f2933b0f37f7a9a7c1c)
+        ;
+
+        
+    
+</script>
+</html>
