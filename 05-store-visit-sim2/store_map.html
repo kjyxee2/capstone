@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_cbef9cfee79b84c80d1060ae0189f4ab {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 30px; left: 30px; width: 280px; z-index:9999;
+     background:white; border:1.5px solid #999; border-radius:8px; padding:10px 14px; font-size:13px;">
+<b>범례</b><br>
+실제 서울시 상권분석서비스(점포-상권배후지) 데이터로<br>확인된 상위 5개 실존 업종만 표시함<br>
+(가상 브랜드명 미사용, 순수 서비스업 제외)
+</div>
+    
+            <div class="folium-map" id="map_cbef9cfee79b84c80d1060ae0189f4ab" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_cbef9cfee79b84c80d1060ae0189f4ab = L.map(
+                "map_cbef9cfee79b84c80d1060ae0189f4ab",
+                {
+                    center: [37.51333, 126.92639],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 16,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_11e67db8f63a6eb681570fb197518366 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_11e67db8f63a6eb681570fb197518366.addTo(map_cbef9cfee79b84c80d1060ae0189f4ab);
+        
+    
+            var marker_11d5007f9c6d412022d5f68a1b72b23f = L.marker(
+                [37.51333, 126.92639],
+                {
+}
+            ).addTo(map_cbef9cfee79b84c80d1060ae0189f4ab);
+        
+    
+            var icon_35db396a22b46312ea1831592fb953c0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkblue",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_46c1364b20d3217852917ebe5c94550d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_2c19cf59deba7139ba0cc2cebe14fc47 = $(`<div id="html_2c19cf59deba7139ba0cc2cebe14fc47" style="width: 100.0%; height: 100.0%;">공군호텔 (상권 중심)</div>`)[0];
+                popup_46c1364b20d3217852917ebe5c94550d.setContent(html_2c19cf59deba7139ba0cc2cebe14fc47);
+            
+        
+
+        marker_11d5007f9c6d412022d5f68a1b72b23f.bindPopup(popup_46c1364b20d3217852917ebe5c94550d)
+        ;
+
+        
+    
+    
+            marker_11d5007f9c6d412022d5f68a1b72b23f.bindTooltip(
+                `<div>
+                     공군호텔
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_11d5007f9c6d412022d5f68a1b72b23f.setIcon(icon_35db396a22b46312ea1831592fb953c0);
+            
+    
+            var marker_cc39c6ad1b8a83591af900706cd29189 = L.marker(
+                [37.51069954697583, 126.92529408879707],
+                {
+}
+            ).addTo(map_cbef9cfee79b84c80d1060ae0189f4ab);
+        
+    
+            var icon_27884c4a264457f01f71ddeb0e96124a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aaafbd585f2521643ac6d8b56a67d21d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_10aa340eb42e6cf849bb9580b3b49224 = $(`<div id="html_10aa340eb42e6cf849bb9580b3b49224" style="width: 100.0%; height: 100.0%;"><b>한식음식점</b><br>실제 93개 존재 (서울시 점포-상권배후지 데이터)</div>`)[0];
+                popup_aaafbd585f2521643ac6d8b56a67d21d.setContent(html_10aa340eb42e6cf849bb9580b3b49224);
+            
+        
+
+        marker_cc39c6ad1b8a83591af900706cd29189.bindPopup(popup_aaafbd585f2521643ac6d8b56a67d21d)
+        ;
+
+        
+    
+    
+            marker_cc39c6ad1b8a83591af900706cd29189.bindTooltip(
+                `<div>
+                     한식음식점
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cc39c6ad1b8a83591af900706cd29189.setIcon(icon_27884c4a264457f01f71ddeb0e96124a);
+            
+    
+            var marker_2afdc6e50da658dcefbc42101fc9d20a = L.marker(
+                [37.51275118752837, 126.9291664038181],
+                {
+}
+            ).addTo(map_cbef9cfee79b84c80d1060ae0189f4ab);
+        
+    
+            var icon_0f4dfe2096d6e953e1d3d6227ff1d0a7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "beige",
+  "iconColor": "white",
+  "icon": "coffee",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b6955a528e8b261b3cf3bd9cddb89463 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f0b708ccf8f0c459004e90f675149ed6 = $(`<div id="html_f0b708ccf8f0c459004e90f675149ed6" style="width: 100.0%; height: 100.0%;"><b>커피-음료</b><br>실제 27개 존재 (서울시 점포-상권배후지 데이터)</div>`)[0];
+                popup_b6955a528e8b261b3cf3bd9cddb89463.setContent(html_f0b708ccf8f0c459004e90f675149ed6);
+            
+        
+
+        marker_2afdc6e50da658dcefbc42101fc9d20a.bindPopup(popup_b6955a528e8b261b3cf3bd9cddb89463)
+        ;
+
+        
+    
+    
+            marker_2afdc6e50da658dcefbc42101fc9d20a.bindTooltip(
+                `<div>
+                     커피-음료
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2afdc6e50da658dcefbc42101fc9d20a.setIcon(icon_0f4dfe2096d6e953e1d3d6227ff1d0a7);
+            
+    
+            var marker_051e79e6beca04aa8030a05cd7c6dddb = L.marker(
+                [37.51586484667379, 126.92384448316913],
+                {
+}
+            ).addTo(map_cbef9cfee79b84c80d1060ae0189f4ab);
+        
+    
+            var icon_47cfb5e99ef5f10af81a191e690dfc08 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0aedddb56dc0944f71128ef274b6649c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5c26d72ceab0ae1b86c7a4955afd1d69 = $(`<div id="html_5c26d72ceab0ae1b86c7a4955afd1d69" style="width: 100.0%; height: 100.0%;"><b>슈퍼마켓</b><br>실제 23개 존재 (서울시 점포-상권배후지 데이터)</div>`)[0];
+                popup_0aedddb56dc0944f71128ef274b6649c.setContent(html_5c26d72ceab0ae1b86c7a4955afd1d69);
+            
+        
+
+        marker_051e79e6beca04aa8030a05cd7c6dddb.bindPopup(popup_0aedddb56dc0944f71128ef274b6649c)
+        ;
+
+        
+    
+    
+            marker_051e79e6beca04aa8030a05cd7c6dddb.bindTooltip(
+                `<div>
+                     슈퍼마켓
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_051e79e6beca04aa8030a05cd7c6dddb.setIcon(icon_47cfb5e99ef5f10af81a191e690dfc08);
+            
+    
+            var marker_810e7791fb297a9c532d776558a44e90 = L.marker(
+                [37.51439950885614, 126.92774828105556],
+                {
+}
+            ).addTo(map_cbef9cfee79b84c80d1060ae0189f4ab);
+        
+    
+            var icon_f3c191b7426e07ec969759ca7088e9aa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkred",
+  "iconColor": "white",
+  "icon": "bed",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_86987244854b1f9a9af1ab1621d09157 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fd37f5c9dcdfe62aac3898de90176505 = $(`<div id="html_fd37f5c9dcdfe62aac3898de90176505" style="width: 100.0%; height: 100.0%;"><b>여관</b><br>실제 18개 존재 (서울시 점포-상권배후지 데이터)</div>`)[0];
+                popup_86987244854b1f9a9af1ab1621d09157.setContent(html_fd37f5c9dcdfe62aac3898de90176505);
+            
+        
+
+        marker_810e7791fb297a9c532d776558a44e90.bindPopup(popup_86987244854b1f9a9af1ab1621d09157)
+        ;
+
+        
+    
+    
+            marker_810e7791fb297a9c532d776558a44e90.bindTooltip(
+                `<div>
+                     여관
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_810e7791fb297a9c532d776558a44e90.setIcon(icon_f3c191b7426e07ec969759ca7088e9aa);
+            
+    
+            var marker_df1cbf86feacf55978544bfc8a642ea0 = L.marker(
+                [37.515323071221445, 126.9272320992844],
+                {
+}
+            ).addTo(map_cbef9cfee79b84c80d1060ae0189f4ab);
+        
+    
+            var icon_77344f3cb28fb3987726beec0fd3c0e7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "lightgreen",
+  "iconColor": "white",
+  "icon": "shopping-basket",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8485460272b749eccaf78cd8660f5bb4 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a6a5602803e8818635cb2083f539e99f = $(`<div id="html_a6a5602803e8818635cb2083f539e99f" style="width: 100.0%; height: 100.0%;"><b>편의점</b><br>실제 5개 존재 (서울시 점포-상권배후지 데이터)</div>`)[0];
+                popup_8485460272b749eccaf78cd8660f5bb4.setContent(html_a6a5602803e8818635cb2083f539e99f);
+            
+        
+
+        marker_df1cbf86feacf55978544bfc8a642ea0.bindPopup(popup_8485460272b749eccaf78cd8660f5bb4)
+        ;
+
+        
+    
+    
+            marker_df1cbf86feacf55978544bfc8a642ea0.bindTooltip(
+                `<div>
+                     편의점
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_df1cbf86feacf55978544bfc8a642ea0.setIcon(icon_77344f3cb28fb3987726beec0fd3c0e7);
+            
+    
+            var circle_4bf431aca56ec266c8b6874f12dac937 = L.circle(
+                [37.51333, 126.92639],
+                {"bubblingMouseEvents": true, "color": "#4a7ac8", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#4a7ac8", "fillOpacity": 0.06, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 400, "stroke": true, "weight": 3}
+            ).addTo(map_cbef9cfee79b84c80d1060ae0189f4ab);
+        
+    
+        var popup_a31f4925f9b825f245a759240bfd9210 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6cff6f44ed099e27119d1e2b901f1d65 = $(`<div id="html_6cff6f44ed099e27119d1e2b901f1d65" style="width: 100.0%; height: 100.0%;">공군호텔 상권 영역(반경 400m)</div>`)[0];
+                popup_a31f4925f9b825f245a759240bfd9210.setContent(html_6cff6f44ed099e27119d1e2b901f1d65);
+            
+        
+
+        circle_4bf431aca56ec266c8b6874f12dac937.bindPopup(popup_a31f4925f9b825f245a759240bfd9210)
+        ;
+
+        
+    
+</script>
+</html>
